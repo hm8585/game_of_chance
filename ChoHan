@@ -1,1 +1,33 @@
 #ChoHan code
+
+def chohan(call, bet):
+  call = input("1=Odd 2=Even")
+  bet = input("How much do you want to bet?: ")
+  bet_int = int(bet)
+  call_int = int(call)
+  
+  if call_int == 1:
+    print("You guessed odd")
+    print("...............")
+  elif call_int == 0:
+    print("You guessed even")
+    print("................")
+  else:
+    print("Please select a proper number")
+    return chohan()
+  
+  num1 = random.randint(1,6)
+  num2 = random.randint(1,6)
+  roll = 0
+  if (num1 + num2) % 2 == 0:
+    print("It\'s even")
+    roll = 2
+  else:
+    print("It\'s odd")
+    roll = 1
+  if roll == call:
+    print("You win " + bet + "$")
+    return bet
+  else:
+    print("You lose -" + bet + "$")
+    return (-1 * bet)
